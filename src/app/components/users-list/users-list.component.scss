@@ -1,0 +1,82 @@
+@import 'style-vars';
+
+.main {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .list-wrapper {
+    @include mob {
+      width: 95%;
+    }
+    width: 70%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+
+    .title {
+      padding-bottom: 1rem;
+      font-weight: bold;
+      font-size: 1.4rem;
+    }
+
+    .users-list {
+      width: 100%;
+
+      $borderUL: solid 1px #e3e3e3;
+
+      .user {
+        border: $borderUL;
+        border-bottom: none;
+        &:last-child {
+          border-bottom: $borderUL;
+        }  
+        $padUL: 1rem;
+        $padULM: 0.2rem;
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: 30% 30% 30% 10%;
+        padding-left: $padUL;
+        padding-right: $padUL;
+
+        @include mob {
+          grid-template-columns: 27% 30% 26% 10%;
+          padding-left: $padULM;
+          padding-right: $padULM;  
+          > * {
+            word-break: break-all;
+          }
+
+          >.button>.btn-1 {
+            word-wrap: none;
+            word-break: keep-all;
+            font-size: 0.7rem;
+          }
+        }
+
+        align-items: center;
+        justify-items: left;
+        height: 2.5rem;
+
+        >.phone {
+          justify-self: center;
+        }
+
+        >.email>a {
+          color: black;
+        }
+
+
+      }
+    }
+
+    .new-user {
+      margin-top: 2rem;
+      > button {
+        height: 2rem;
+      }
+    }
+  }
+}

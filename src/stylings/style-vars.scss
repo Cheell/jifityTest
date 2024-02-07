@@ -1,0 +1,11 @@
+$myBG: rgb(210, 231, 231);
+
+.f {
+  color: rgb(210, 231, 231)
+}
+
+@mixin mob {
+  @media (max-width: 900px) {
+    @content;
+  }
+}

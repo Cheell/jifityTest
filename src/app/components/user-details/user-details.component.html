@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="back-to-list">
+    <button [routerLink]="['/user-list']" class="btn-1">Back to list</button>
+  </div>
+  <div class="title">Users Details</div>
+  <div class="subtitle">Fill out new user's personal info</div>
+
+
+
+  <ng-container *ngIf="!(isEdit$ | async); else newUser">
+    <div [formGroup]="form" class="details-wrapper" *ngIf="user$ | async as user">
+      <ng-container *ngFor="let control of formControls$ | async">
+        <app-form-control [formControlName]="control.key" [controlData]="control"></app-form-control>
+        <div class="error" [hidden]="form.controls[control.key].valid || form.controls[control.key].untouched">{{control.label + errorText}}</div>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <ng-template #newUser>
+    <div class="details-wrapper" [formGroup]="form">
+      <div class="detail" *ngFor="let control of formControls$ | async">
+        <app-form-control [formControlName]="control.key" [controlData]="control"></app-form-control>
+        <div class="error" [hidden]="form.controls[control.key].valid || form.controls[control.key].untouched">{{control.label + errorText}}</div>
+      </div>
+    </div>
+  </ng-template>
+
+
+  <div class="success-wrapper">
+    <div class="success" [hidden]="(isSaveDisabledTimer | async) == 0">
+      User successefully saved!
+    </div>
+  </div>
+
+  <div class="new-user">
+    <button [disabled]="(isSaveDisabledTimer | async) !== 0" class="btn-1" (click)="save()">
+    {{ isSaveDisabledTimer.value !== 0 ? 'Disabled for: ' + isSaveDisabledTimer.value +' seconds' : 'Save'}}</button>
+  </div>
+</div>

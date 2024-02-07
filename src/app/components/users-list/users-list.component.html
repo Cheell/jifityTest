@@ -1,0 +1,18 @@
+<div class="main">
+  <div class="list-wrapper">
+    <div class="title">Users List</div>
+    <div class="users-list">
+      <div class="user" *ngFor="let user of userList$ | async; index as i">
+        <div class="name">{{user.first_name + ' ' + user.last_name}}</div>
+        <div class="email"><a href="mailto:{{user.email}}">{{user.email}}</a></div>
+        <div class="phone">{{user.phone}}</div>
+        <div class="button">
+          <button class="btn-1" (click)="editCreate(i)">Edit</button>
+        </div>
+      </div>
+    </div>
+    <div class="new-user">
+      <button class="btn-1" (click)="editCreate()">Add new user</button>
+    </div>
+  </div>
+</div>

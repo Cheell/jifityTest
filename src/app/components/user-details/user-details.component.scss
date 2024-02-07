@@ -1,0 +1,95 @@
+@import 'style-vars';
+
+.main {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .back-to-list {
+    align-self: flex-start;
+    margin-left: 10rem;
+
+    @include mob {
+      margin-left: 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .title {
+    padding-bottom: 1rem;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    padding-bottom: 1rem;
+    font-weight: normal;
+    font-size: 0.6rem;
+  }
+
+  .details-wrapper {
+    display: grid;
+    grid-template:
+      '. .';
+
+    @include mob {
+      grid-template:
+      '.';
+    }
+    column-gap: 1.5rem;
+    row-gap: 0.5rem;
+    margin-bottom: 5rem;
+
+
+
+    .detail {
+      width: 12rem;
+      height: 3rem;
+
+      .error {
+        margin-top: 0.2rem;
+        color: red;
+        font-size: 0.5rem;
+        @include mob {
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    @include mob {
+      .detail {
+        width: 18rem;
+        margin-bottom: 2.7rem;
+      }
+      margin-bottom: 1rem;
+    }
+  }
+
+  .success-wrapper {
+    height: 2rem;
+    .success {
+      $s-width: 0.3px;
+      $blur: 0;
+      $c: rgb(29, 206, 206);
+      font-weight: bold;
+      font-size: 1rem;
+      color: rgb(78, 194, 78);
+      text-shadow: $s-width $s-width $blur $c,
+        (-$s-width) $s-width $blur $c,
+        (-$s-width) (-$s-width) $blur $c,
+        $s-width (-$s-width) $blur $c;
+    }
+  }
+
+  .new-user>.btn-1 {
+    width: 11rem;
+    height: 2rem;
+
+    &:disabled {
+      background-color: #e5e5e5;
+      color: #929292;
+    }
+  }
+}
