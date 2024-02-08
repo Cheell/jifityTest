@@ -10,7 +10,9 @@
   .back-to-list {
     align-self: flex-start;
     margin-left: 10rem;
-
+    > button {
+      font-size: 1rem;
+    }
     @include mob {
       margin-left: 1rem;
       margin-bottom: 1rem;
@@ -20,13 +22,13 @@
   .title {
     padding-bottom: 1rem;
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.7rem;
   }
 
   .subtitle {
     padding-bottom: 1rem;
     font-weight: normal;
-    font-size: 0.6rem;
+    font-size: 0.8rem;
   }
 
   .details-wrapper {
@@ -36,8 +38,9 @@
 
     @include mob {
       grid-template:
-      '.';
+        '.';
     }
+
     column-gap: 1.5rem;
     row-gap: 0.5rem;
     margin-bottom: 5rem;
@@ -52,6 +55,7 @@
         margin-top: 0.2rem;
         color: red;
         font-size: 0.5rem;
+
         @include mob {
           font-size: 0.9rem;
         }
@@ -63,12 +67,14 @@
         width: 18rem;
         margin-bottom: 2.7rem;
       }
+
       margin-bottom: 1rem;
     }
   }
 
   .success-wrapper {
     height: 2rem;
+
     .success {
       $s-width: 0.3px;
       $blur: 0;
@@ -79,13 +85,16 @@
       text-shadow: $s-width $s-width $blur $c,
         (-$s-width) $s-width $blur $c,
         (-$s-width) (-$s-width) $blur $c,
-        $s-width (-$s-width) $blur $c;
+        $s-width (
+        -$s-width) $blur $c;
     }
   }
 
-  .new-user>.btn-1 {
+  .save>.btn-1 {
     width: 11rem;
     height: 2rem;
+
+    font-size: 1.1rem;
 
     &:disabled {
       background-color: #e5e5e5;

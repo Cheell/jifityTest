@@ -22,7 +22,7 @@
     </div>
   </div>
 
-  <div class="new-user">
+  <div class="save">
     <button [disabled]="(isSaveDisabledTimer | async) !== 0" class="btn-1" (click)="save()">
     {{ isSaveDisabledTimer.value !== 0 ? 'Disabled for: ' + isSaveDisabledTimer.value +' seconds' : 'Save'}}</button>
   </div>

@@ -28,6 +28,7 @@
       $borderUL: solid 1px #e3e3e3;
 
       .user {
+        word-break: break-all;
         border: $borderUL;
         border-bottom: none;
         &:last-child {
@@ -41,21 +42,6 @@
         padding-left: $padUL;
         padding-right: $padUL;
 
-        @include mob {
-          grid-template-columns: 27% 30% 26% 10%;
-          padding-left: $padULM;
-          padding-right: $padULM;  
-          > * {
-            word-break: break-all;
-          }
-
-          >.button>.btn-1 {
-            word-wrap: none;
-            word-break: keep-all;
-            font-size: 0.7rem;
-          }
-        }
-
         align-items: center;
         justify-items: left;
         height: 2.5rem;
@@ -68,7 +54,28 @@
           color: black;
         }
 
+        >.button>.btn-1 {
+          word-wrap: none;
+          word-break: keep-all;
+        }
 
+
+        @include mob {
+          grid-template-columns: 27% 30% 26% 10%;
+          padding-left: $padULM;
+          padding-right: $padULM;  
+          > * {
+            font-size: 0.7rem;
+          }
+          height: 3rem;
+          >.button>.btn-1 {
+            $bp: 0.7rem;
+            word-wrap: none;
+            word-break: keep-all;
+            padding-left: $bp;
+            padding-right: $bp;
+          }
+        }
       }
     }
 
